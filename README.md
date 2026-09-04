@@ -149,12 +149,7 @@ Crear la base de datos en PostgreSQL antes de iniciar el microservicio de produc
 CREATE DATABASE product_db;
 ```
 
-**Credenciales por defecto:**
-- Usuario: `postgres`
-- Password: `root`
-- Puerto: `5432`
 
-> **Nota:** Las credenciales estan configuradas en `product-microservice/src/main/resources/application.properties`.
 
 ---
 
