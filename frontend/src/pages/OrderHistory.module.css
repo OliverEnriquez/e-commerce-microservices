@@ -1,0 +1,147 @@
+.orders {
+  padding-top: 88px;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 88px 24px 48px;
+}
+
+.orders h1 {
+  font-family: var(--font-display);
+  font-size: 1.75rem;
+  margin-bottom: 32px;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 20px 24px;
+  transition: border-color var(--transition);
+}
+
+.card:hover {
+  border-color: rgba(0, 255, 136, 0.2);
+}
+
+.cardMain {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.cardInfo {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.orderId {
+  font-family: var(--font-mono);
+  font-weight: 600;
+  font-size: 0.9375rem;
+  color: var(--accent);
+}
+
+.date {
+  font-size: 0.8125rem;
+  color: var(--text-secondary);
+}
+
+.itemsCount {
+  font-size: 0.8125rem;
+  color: var(--text-secondary);
+}
+
+.cardRight {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.total {
+  font-family: var(--font-mono);
+  font-weight: 600;
+  font-size: 1rem;
+  color: var(--text-primary);
+  min-width: 100px;
+  text-align: right;
+}
+
+.viewBtn {
+  font-size: 0.8125rem;
+  font-weight: 500;
+  color: var(--accent);
+  text-decoration: none;
+  white-space: nowrap;
+  transition: color var(--transition);
+}
+
+.viewBtn:hover {
+  color: var(--accent-dim);
+}
+
+.deleteBtn {
+  background: none;
+  color: var(--text-secondary);
+  padding: 6px;
+  border-radius: var(--radius-sm);
+  transition: color var(--transition);
+}
+
+.deleteBtn:hover {
+  color: var(--danger);
+}
+
+.skeleton {
+  height: 80px;
+  background: var(--bg-surface);
+  border-radius: var(--radius-md);
+  animation: shimmer 1.5s infinite;
+}
+
+@keyframes shimmer {
+  0%, 100% { opacity: 0.5; }
+  50% { opacity: 1; }
+}
+
+.empty {
+  text-align: center;
+  padding: 80px 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  color: var(--text-secondary);
+}
+
+.empty p {
+  font-size: 1.125rem;
+}
+
+.empty a {
+  padding: 12px 24px;
+  background: var(--accent);
+  color: var(--bg-primary);
+  font-weight: 600;
+  border-radius: var(--radius-sm);
+  text-decoration: none;
+}
+
+@media (max-width: 768px) {
+  .cardMain {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .cardRight {
+    width: 100%;
+    justify-content: space-between;
+  }
+}

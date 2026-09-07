@@ -1,0 +1,46 @@
+.badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 10px;
+  border-radius: var(--radius-sm);
+  font-size: 0.75rem;
+  font-weight: 600;
+  font-family: var(--font-mono);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.large {
+  padding: 6px 14px;
+  font-size: 0.875rem;
+}
+
+.pending {
+  background: rgba(255, 170, 51, 0.15);
+  color: var(--warning);
+  border: 1px solid rgba(255, 170, 51, 0.3);
+}
+
+.confirmed {
+  background: rgba(0, 255, 136, 0.15);
+  color: var(--success);
+  border: 1px solid rgba(0, 255, 136, 0.3);
+}
+
+.shipped {
+  background: rgba(51, 170, 255, 0.15);
+  color: var(--info);
+  border: 1px solid rgba(51, 170, 255, 0.3);
+}
+
+.delivered {
+  background: rgba(0, 255, 136, 0.15);
+  color: var(--success);
+  border: 1px solid rgba(0, 255, 136, 0.3);
+}
+
+.cancelled {
+  background: rgba(255, 68, 102, 0.15);
+  color: var(--danger);
+  border: 1px solid rgba(255, 68, 102, 0.3);
+}

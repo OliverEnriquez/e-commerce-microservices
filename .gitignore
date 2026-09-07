@@ -1,21 +1,25 @@
+# Frontend
+frontend/node_modules/
+frontend/dist/
+frontend/.vite/
+
 # IDE
 .idea/
-*.iml
 .vscode/
+*.iml
 
-# Maven/Gradle build output
-target/
-build/
+# Java
+**/target/
 *.class
 *.jar
 *.war
 
-# OS files
+# OS
 .DS_Store
 Thumbs.db
 
 # Logs
 *.log
 
-# Environment variables
-.env
+# Docker volumes
+pgdata/
