@@ -15,7 +15,7 @@ const CATEGORIES = [
 const PROMOS = [
   { title: 'Ofertas de temporada', desc: 'Hasta 30% de descuento en componentes PC', accent: 'var(--danger)' },
   { title: 'Envio gratis', desc: 'En compras mayores a $2,000', accent: 'var(--accent)' },
-  { title: 'Garantia extendida', desc: '2 anos en productos seleccionados', accent: 'var(--info)' }
+  { title: 'Garantia extendida', desc: '2 años en productos seleccionados', accent: 'var(--info)' }
 ]
 
 export default function Home() {

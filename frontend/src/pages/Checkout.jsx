@@ -84,7 +84,7 @@ export default function Checkout() {
               name="city"
               value={form.city}
               onChange={handleChange}
-              placeholder="Lima"
+              placeholder="Chihuahua"
               required
             />
           </div>
