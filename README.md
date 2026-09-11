@@ -106,6 +106,29 @@ Arquitectura de microservicios para una plataforma e-commerce construida con **S
 - Skeletons de carga
 - Estados vacios con CTA
 
+### Capturas de Pantalla
+
+**1. Página Principal (Home)**
+![Home](captures/01_home.png)
+
+**2. Catálogo de Productos**
+![Catalog](captures/02_catalog.png)
+
+**3. Detalle de Producto**
+![Product Detail](captures/03_product_detail.png)
+
+**4. Carrito de Compras**
+![Cart Drawer](captures/04_cart_drawer.png)
+
+**5. Checkout**
+![Checkout](captures/05_checkout.png)
+
+**6. Historial de Pedidos**
+![Order History](captures/06_order_history.png)
+
+**7. Detalle de Pedido**
+![Order Detail](captures/07_order_detail.png)
+
 ---
 
 ## Comunicacion entre Microservicios
