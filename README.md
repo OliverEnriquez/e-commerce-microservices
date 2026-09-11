@@ -63,6 +63,14 @@ Arquitectura de microservicios para una plataforma e-commerce construida con **S
 | **Puerto** | `8081` |
 | **Base de datos** | PostgreSQL `product_db` |
 
+**Autenticación (Spring Security + JWT):**
+
+| Ruta             | Metodo | Acceso                          |
+| ----------------- | ------ | -------------------------------- |
+| `/api/products`   | `GET`  | Publico (catalogo abierto)       |
+| `/api/products`   | `POST` | Requiere JWT (rol ADMIN)         |
+| `/auth/login`     | `POST` | Publico (login)                  |
+
 | Metodo | Path | Descripcion |
 |---|---|---|
 | `GET` | `/api/products` | Obtener todos los productos |
@@ -157,6 +165,14 @@ POST http://localhost:8080/orders
 ```
 
 ---
+
+## Autenticacion y Seguridad
+
+[#autenticacion-y-seguridad](#autenticacion-y-seguridad)
+
+`Product Microservice` implementa autenticacion stateless con JWT usando Spring Security, protegiendo las rutas administrativas mientras el catalogo permanece publico.
+
+**Flujo de autenticacion:**
 
 ## Docker (Recomendado)
 
