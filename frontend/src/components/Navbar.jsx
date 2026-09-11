@@ -1,10 +1,12 @@
 import { NavLink } from 'react-router-dom'
-import { ShoppingCart, Store } from 'lucide-react'
+import { ShoppingCart, Store, LogIn, LogOut } from 'lucide-react'
 import { useCart } from '../context/CartContext'
+import { useAuth } from '../context/AuthContext'
 import styles from './Navbar.module.css'
 
 export default function Navbar() {
   const { totalItems, toggleCart } = useCart()
+  const { token, logout } = useAuth()
 
   return (
     <nav className={styles.navbar}>
@@ -26,10 +28,21 @@ export default function Navbar() {
           </NavLink>
         </div>
 
-        <button className={styles.cartBtn} onClick={toggleCart}>
-          <ShoppingCart size={22} />
-          {totalItems > 0 && <span className={styles.badge}>{totalItems}</span>}
-        </button>
+        <div className={styles.actions}>
+          {token ? (
+            <button className={styles.authBtn} onClick={logout} title="Cerrar sesion">
+              <LogOut size={20} />
+            </button>
+          ) : (
+            <NavLink to="/login" className={styles.authBtn} title="Iniciar sesion">
+              <LogIn size={20} />
+            </NavLink>
+          )}
+          <button className={styles.cartBtn} onClick={toggleCart}>
+            <ShoppingCart size={22} />
+            {totalItems > 0 && <span className={styles.badge}>{totalItems}</span>}
+          </button>
+        </div>
       </div>
     </nav>
   )

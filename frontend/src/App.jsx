@@ -8,6 +8,7 @@ import ProductDetail from './pages/ProductDetail'
 import Checkout from './pages/Checkout'
 import OrderHistory from './pages/OrderHistory'
 import OrderDetail from './pages/OrderDetail'
+import Login from './pages/Login'
 import styles from './App.module.css'
 
 export default function App() {
@@ -24,6 +25,7 @@ export default function App() {
           <Route path="/checkout" element={<Checkout />} />
           <Route path="/orders" element={<OrderHistory />} />
           <Route path="/orders/:id" element={<OrderDetail />} />
+          <Route path="/login" element={<Login />} />
         </Routes>
       </main>
     </div>

@@ -89,3 +89,26 @@
   justify-content: center;
   padding: 0 4px;
 }
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.authBtn {
+  background: none;
+  color: var(--text-primary);
+  padding: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-sm);
+  transition: color var(--transition), background var(--transition);
+  text-decoration: none;
+}
+
+.authBtn:hover {
+  color: var(--accent);
+  background: var(--bg-elevated);
+}
