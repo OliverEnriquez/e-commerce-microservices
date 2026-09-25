@@ -160,8 +160,6 @@ Al crear una orden exitosamente, se publica un evento a **Amazon SNS**, que disp
 [![Order Detail](captures/07_order_detail.png)](captures/07_order_detail.png)
 
 **8. Logs de AWS Lambda en CloudWatch**
-[![Lambda Logs](captures/08_lambda_logs.png)](captures/08_lambda_logs.png)
-*Captura pendiente: agregar screenshot de `aws logs tail /aws/lambda/notify-order-created` mostrando una invocacion exitosa.*
 
 ---
 
