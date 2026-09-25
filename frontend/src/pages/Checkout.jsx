@@ -11,6 +11,7 @@ export default function Checkout() {
   const navigate = useNavigate()
   const [loading, setLoading] = useState(false)
   const [form, setForm] = useState({
+    customerEmail: '',
     shippingAddress: '',
     city: '',
     paymentMethod: 'CREDIT_CARD'
@@ -31,6 +32,7 @@ export default function Checkout() {
     try {
       const order = {
         userId: 1,
+        customerEmail: form.customerEmail,
         shippingAddress: `${form.shippingAddress}, ${form.city}`,
         paymentMethod: form.paymentMethod,
         items: items.map(item => ({
@@ -51,88 +53,100 @@ export default function Checkout() {
 
   if (items.length === 0) {
     return (
-      <div className={styles.empty}>
-        <ShoppingBag size={48} />
-        <h2>No hay productos en el carrito</h2>
-        <button onClick={() => navigate('/products')}>Ir al catalogo</button>
-      </div>
+        <div className={styles.empty}>
+          <ShoppingBag size={48} />
+          <h2>No hay productos en el carrito</h2>
+          <button onClick={() => navigate('/products')}>Ir al catalogo</button>
+        </div>
     )
   }
 
   return (
-    <div className={styles.checkout}>
-      <h1>Checkout</h1>
+      <div className={styles.checkout}>
+        <h1>Checkout</h1>
 
-      <div className={styles.layout}>
-        <form className={styles.form} onSubmit={handleSubmit}>
-          <div className={styles.field}>
-            <label>Direccion de envio</label>
-            <input
-              type="text"
-              name="shippingAddress"
-              value={form.shippingAddress}
-              onChange={handleChange}
-              placeholder="Av. Principal 123"
-              required
-            />
-          </div>
+        <div className={styles.layout}>
+          <form className={styles.form} onSubmit={handleSubmit}>
+            <div className={styles.field}>
+              <label>Correo electronico</label>
+              <input
+                  type="email"
+                  name="customerEmail"
+                  value={form.customerEmail}
+                  onChange={handleChange}
+                  placeholder="tucorreo@ejemplo.com"
+                  required
+              />
+            </div>
 
-          <div className={styles.field}>
-            <label>Ciudad</label>
-            <input
-              type="text"
-              name="city"
-              value={form.city}
-              onChange={handleChange}
-              placeholder="Chihuahua"
-              required
-            />
-          </div>
+            <div className={styles.field}>
+              <label>Direccion de envio</label>
+              <input
+                  type="text"
+                  name="shippingAddress"
+                  value={form.shippingAddress}
+                  onChange={handleChange}
+                  placeholder="Av. Principal 123"
+                  required
+              />
+            </div>
 
-          <div className={styles.field}>
-            <label>Metodo de pago</label>
-            <select
-              name="paymentMethod"
-              value={form.paymentMethod}
-              onChange={handleChange}
+            <div className={styles.field}>
+              <label>Ciudad</label>
+              <input
+                  type="text"
+                  name="city"
+                  value={form.city}
+                  onChange={handleChange}
+                  placeholder="Chihuahua"
+                  required
+              />
+            </div>
+
+            <div className={styles.field}>
+              <label>Metodo de pago</label>
+              <select
+                  name="paymentMethod"
+                  value={form.paymentMethod}
+                  onChange={handleChange}
+              >
+                <option value="CREDIT_CARD">Tarjeta de Credito</option>
+                <option value="DEBIT_CARD">Tarjeta de Debito</option>
+                <option value="PAYPAL">PayPal</option>
+                <option value="TRANSFER">Transferencia</option>
+              </select>
+            </div>
+
+            <button
+                type="submit"
+                className={styles.submitBtn}
+                disabled={loading}
             >
-              <option value="CREDIT_CARD">Tarjeta de Credito</option>
-              <option value="DEBIT_CARD">Tarjeta de Debito</option>
-              <option value="PAYPAL">PayPal</option>
-              <option value="TRANSFER">Transferencia</option>
-            </select>
-          </div>
+              {loading ? 'Procesando...' : 'Confirmar pedido'}
+            </button>
+          </form>
 
-          <button
-            type="submit"
-            className={styles.submitBtn}
-            disabled={loading}
-          >
-            {loading ? 'Procesando...' : 'Confirmar pedido'}
-          </button>
-        </form>
-
-        <div className={styles.summary}>
-          <h2>Resumen del pedido</h2>
-          <div className={styles.summaryItems}>
-            {items.map(item => (
-              <div key={item.id} className={styles.summaryItem}>
-                <div>
-                  <p className={styles.summaryName}>{item.name}</p>
-                  <p className={styles.summaryQty}>x{item.quantity}</p>
-                </div>
-                <span className={styles.summarySubtotal}>
+          <div className={styles.summary}>
+            <h2>Resumen del pedido</h2>
+            <div className={styles.summaryItems}>
+              {items.map(item => (
+                  <div key={item.id} className={styles.summaryItem}>
+                    <div>
+                      <p className={styles.summaryName}>{item.name}</p>
+                      <p className={styles.summaryQty}>x{item.quantity}</p>
+                    </div>
+                    <span className={styles.summarySubtotal}>
                   ${(item.price * item.quantity).toFixed(2)}
                 </span>
-              </div>
-            ))}
-          </div>
-          <div className={styles.summaryTotal}>
-            <span>Total</span>
-            <span>${totalPrice.toFixed(2)}</span>
+                  </div>
+              ))}
+            </div>
+            <div className={styles.summaryTotal}>
+              <span>Total</span>
+              <span>${totalPrice.toFixed(2)}</span>
+            </div>
           </div>
         </div>
       </div>
-    </div>
   )
 }

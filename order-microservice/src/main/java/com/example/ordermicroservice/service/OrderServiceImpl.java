@@ -17,6 +17,9 @@ public class OrderServiceImpl implements OrderService{
     private OrderRepository orderRepository;
 
     @Autowired
+    private NotificationPublisher notificationPublisher;
+
+    @Autowired
     private ProductClient productClient;
 
     @Override
@@ -50,6 +53,7 @@ public class OrderServiceImpl implements OrderService{
         }
         order.setTotalPrice(total);
         orderRepository.save(order);
+        notificationPublisher.publishOrderNotification(order.getId(), order.getCustomerEmail());
     }
 
 

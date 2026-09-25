@@ -30,6 +30,8 @@ public class Order {
 
     private Long userId;
 
+    private String customerEmail;
+
     private double totalPrice;
 
     @Enumerated(EnumType.STRING)
